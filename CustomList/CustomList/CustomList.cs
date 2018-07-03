@@ -10,6 +10,7 @@ namespace CustomList
     {
         // Member Variables
         public T[] curArray;
+        public int arrayCount;
         public T this[int i]
         {
             get { return curArray[i]; }
@@ -19,13 +20,86 @@ namespace CustomList
         public CustomList()
         {
             curArray = new T[0];
+            arrayCount = 0;
         }
         // Member Methods
         public void Add(T item)
         {
-            T[] newArray = new T[curArray.Length + 1];
-            newArray[newArray.Length - 1] = item;
-            curArray = newArray;
+            if (arrayCount == 0)
+            {
+                arrayCount++;
+                T[] newArray = new T[arrayCount];
+                newArray[arrayCount - 1] = item;
+                curArray = newArray;
+            }
+            else
+            {
+                arrayCount++;
+                T[] newArray = new T[arrayCount];
+                for (int i = 0; i < arrayCount - 1; i++)
+                {
+                    newArray[i] = curArray[i];
+                }
+
+                newArray[arrayCount - 1] = item;
+                curArray = newArray;
+            }
+        }
+        public bool Remove(T item)
+        {
+            for(int i = 0; i < arrayCount; i++)
+            {
+                if(curArray[i].Equals(item))
+                {
+                    arrayCount--;
+                    this.Splice(i);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public void Splice(int eleIdx)
+        {
+            if (arrayCount == 0)
+            {
+                T[] newArray = new T[arrayCount];
+                for (int i = 0; i < arrayCount + 1; i++)
+                {
+                    if (i != eleIdx)
+                    {
+                        newArray[i] = curArray[i];
+                    }
+                }
+                curArray = newArray;
+            }
+            else if(eleIdx == 0 && arrayCount == 2)
+            {
+                T[] newArray = new T[arrayCount];
+                for (int i = 0; i < arrayCount + 1; i++)
+                {
+                    if (i > eleIdx)
+                    {
+                        newArray[i - 1] = curArray[i];
+                    }
+                }
+                curArray = newArray;
+            }
+            else
+            {
+                T[] newArray = new T[arrayCount];
+                for (int i = 0; i < arrayCount + 1; i++)
+                {
+                    if(i < eleIdx)
+                    {
+                        newArray[i] = curArray[i];
+                    }
+                    else if(i > eleIdx)
+                    {
+                        newArray[i - 1] = curArray[i];
+                    }
+                }
+                curArray = newArray;
+            }
         }
     }
 }

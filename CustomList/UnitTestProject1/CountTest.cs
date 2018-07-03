@@ -8,8 +8,21 @@ namespace CustomListTests
     public class CountTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void OneIndex_Count()
         {
+            CustomList<int> customList = new CustomList<int>();
+            customList.Add(14);
+
+            Assert.AreEqual(customList.arrayCount, 1);
+        }
+        [TestMethod]
+        public void TwoIndex_Count()
+        {
+            CustomList<int> customList = new CustomList<int>();
+            customList.Add(14);
+            customList.Add(16);
+
+            Assert.AreEqual(customList.arrayCount, 2);
         }
     }
 }
