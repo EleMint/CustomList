@@ -11,7 +11,7 @@ namespace CustomListTests
         public void OneIndex_Add()
         {
             // Arrange
-            CustomList customList = new CustomList();
+            CustomList<int> customList = new CustomList<int>();
             int expected = 16;
             // Act
             customList.Add(expected);
@@ -23,7 +23,7 @@ namespace CustomListTests
         public void TwoIndex_Add()
         {
             // Arrange
-            CustomList customList = new CustomList();
+            CustomList<int> customList = new CustomList<int>();
             int expected0 = 16;
             int expected1 = 13;
             // Act
@@ -39,7 +39,7 @@ namespace CustomListTests
         public void ThreeIndex_Add()
         {
             // Arrange
-            CustomList customList = new CustomList();
+            CustomList<int> customList = new CustomList<int>();
             int expected0 = 16;
             int expected1 = 14;
             int expected2 = 13;
@@ -59,7 +59,7 @@ namespace CustomListTests
         public void NineIndex_Add()
         {
             // Arrange
-            CustomList customList = new CustomList();
+            CustomList<int> customList = new CustomList<int>();
             int expected0 = 1;
             int expected1 = 6;
             int expected2 = 3;
@@ -103,7 +103,7 @@ namespace CustomListTests
         public void TenIndex_Add()
         {
             // Arrange
-            CustomList customList = new CustomList();
+            CustomList<int> customList = new CustomList<int>();
             int expected0 = 16;
             int expected1 = 6;
             int expected2 = 1;
