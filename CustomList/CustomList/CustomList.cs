@@ -101,5 +101,21 @@ namespace CustomList
                 curArray = newArray;
             }
         }
+        public CustomList<T> Zip(CustomList<T> customList2)
+        {
+            CustomList<T> customList3 = new CustomList<T>();
+            for(int i = 0; i < this.arrayCount + customList2.arrayCount; i++)
+            {
+                if(customList2.arrayCount > i)
+                {
+                    customList3.Add(this.curArray[i]);
+                }
+                if(this.arrayCount > i)
+                {
+                    customList3.Add(customList2.curArray[i]);
+                }
+            }
+            return customList3;
+        }
     }
 }
