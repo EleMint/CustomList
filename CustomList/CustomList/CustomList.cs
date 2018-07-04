@@ -117,5 +117,36 @@ namespace CustomList
             }
             return customList3;
         }
+        public string Stringify()
+        {
+            string myStr = "";
+            for(int i = 0; i < arrayCount; i++)
+            {
+                if(i == arrayCount - 1)
+                {
+                    myStr += $"{curArray[i]}";
+                }
+                else
+                {
+                    myStr += $"{curArray[i]}, ";
+                }
+                
+            }
+            return myStr;
+        }
+        public static CustomList<T> operator +(CustomList<T> customList, CustomList<T> customList2)
+        {
+            CustomList<T> customList3 = new CustomList<T>();
+            for(int i = 0; i < customList.arrayCount; i++)
+            {
+                customList3.Add(customList.curArray[i]);
+            }
+            for(int i = 0; i < customList2.arrayCount; i++)
+            {
+                customList3.Add(customList2.curArray[i]);
+            }
+            return customList3;
+        }
+
     }
 }
