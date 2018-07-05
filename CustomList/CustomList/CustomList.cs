@@ -2,27 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CustomList
 {
     public class CustomList<T>
     {
-        // Member Variables
-        public T[] curArray;
-        public int arrayCount;
-        public T this[int i]
-        {
-            get { return curArray[i]; }
-            set { curArray[i] = value; }
-        }
-        // Constructor
+        public T[] curArray { get; set; }
+        public int arrayCount { get; set; }
+        public T this[int i] { get {return curArray[i];} set {curArray[i] = value;}}
         public CustomList()
         {
             curArray = new T[0];
             arrayCount = 0;
         }
-        // Member Methods
         public void Add(T item)
         {
             if (arrayCount == 0)
@@ -58,7 +52,7 @@ namespace CustomList
             }
             return false;
         }
-        public void Splice(int eleIdx)
+        private void Splice(int eleIdx)
         {
             if (arrayCount == 0)
             {
@@ -117,7 +111,7 @@ namespace CustomList
             }
             return customList3;
         }
-        public string Stringify()
+        public override string ToString()
         {
             string myStr = "";
             for(int i = 0; i < arrayCount; i++)
@@ -147,6 +141,43 @@ namespace CustomList
             }
             return customList3;
         }
+        public static CustomList<T> operator -(CustomList<T> customList, CustomList<T> customList2)
+        {
+            for(int i = 0; i < customList.arrayCount; i++)
+            {
+                for(int j = 0; j < customList2.arrayCount; j++)
+                {
+                    if(customList.curArray[i].Equals(customList2.curArray[j]))
+                    {
+                        customList.Remove(customList2.curArray[j]);
+                        i--;
+                        break;
+                    }
+                }
+            }
+            
+            return customList;
+        }
+        public CustomList<T> Sort()
+        {
+            CustomList<T> customListSorted = new CustomList<T>();
+            T temp;
+            for(int i = 0; i < this.arrayCount; i++)
+            {
+                for(int j = 0; j < this.arrayCount; j++)
+                {
+                    //if (curArray[i] > curArray[j])
+                    //{
+                    //    temp = curArray[j];
+                    //    curArray[j] = curArray[i];
+                    //    curArray[i] = temp;
+                    //}
+                }
+            }
+            
 
+
+            return customListSorted;
+        }
     }
 }

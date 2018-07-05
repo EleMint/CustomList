@@ -5,42 +5,42 @@ using CustomList;
 namespace CustomListTests
 {
     [TestClass]
-    public class StringifyTest
+    public class ToStringTest
     {
         [TestMethod]
-        public void OneIndex_Stringify()
+        public void OneIndex_ToString()
         {
             CustomList<int> customList = new CustomList<int>();
             customList.Add(100);
 
-            string actual = customList.Stringify();
+            string actual = customList.ToString();
 
             Assert.AreEqual("100", actual);
         }
         [TestMethod]
-        public void TwoIndex_Stringify()
+        public void TwoIndex_ToString()
         {
             CustomList<int> customList = new CustomList<int>();
             customList.Add(100);
             customList.Add(80);
 
-            string actual = customList.Stringify();
+            string actual = customList.ToString();
 
             Assert.AreEqual("100, 80", actual);
         }
         [TestMethod]
-        public void TwoIndexBool_Stringify()
+        public void TwoIndexBool_ToString()
         {
             CustomList<bool> customList = new CustomList<bool>();
             customList.Add(true);
             customList.Add(false);
 
-            string actual = customList.Stringify();
+            string actual = customList.ToString();
 
             Assert.AreEqual("True, False", actual);
         }
         [TestMethod]
-        public void SixIndexBool_Stringify()
+        public void SixIndexBool_ToString()
         {
             CustomList<bool> customList = new CustomList<bool>();
             customList.Add(true);
@@ -50,18 +50,18 @@ namespace CustomListTests
             customList.Add(true);
             customList.Add(false);
 
-            string actual = customList.Stringify();
+            string actual = customList.ToString();
 
             Assert.AreEqual("True, False, True, False, True, False", actual);
         }
         [TestMethod]
-        public void TwoIndexString_Stringify()
+        public void TwoIndexString_ToString()
         {
             CustomList<string> customList = new CustomList<string>();
             customList.Add("hello");
             customList.Add("There");
 
-            string actual = customList.Stringify();
+            string actual = customList.ToString();
 
             Assert.AreEqual("hello, There", actual);
         }

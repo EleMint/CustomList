@@ -12,14 +12,19 @@ namespace CustomList
         {
             CustomList<int> customList = new CustomList<int>();
             CustomList<int> customList2 = new CustomList<int>();
-            customList.Add(1);
-            customList.Add(3);
-            customList.Add(5);
-            customList2.Add(2);
+            customList.Add(14);
+            customList.Add(14);
+            customList.Add(4);
+            customList.Add(14);
+            customList.Add(14);
+            customList.Add(100);
+            customList2.Add(22);
+            customList2.Add(22);
+            customList2.Add(14);
             customList2.Add(4);
-            customList2.Add(6);
+            customList2.Add(22);
 
-            CustomList<int> customList3 = customList.Zip(customList2);
+            CustomList<int> actual = customList - customList2;
             Console.ReadLine();
         }
     }
