@@ -98,13 +98,13 @@ namespace CustomList
         public CustomList<T> Zip(CustomList<T> customList2)
         {
             CustomList<T> customList3 = new CustomList<T>();
-            for(int i = 0; i < this.arrayCount + customList2.arrayCount; i++)
+            for(int i = 0; i < arrayCount + customList2.arrayCount; i++)
             {
-                if(customList2.arrayCount > i)
+                if(arrayCount > i)
                 {
-                    customList3.Add(this.curArray[i]);
+                    customList3.Add(curArray[i]);
                 }
-                if(this.arrayCount > i)
+                if(customList2.arrayCount > i)
                 {
                     customList3.Add(customList2.curArray[i]);
                 }
@@ -158,26 +158,26 @@ namespace CustomList
             
             return customList;
         }
-        public CustomList<T> Sort()
-        {
-            CustomList<T> customListSorted = new CustomList<T>();
-            T temp;
-            for(int i = 0; i < this.arrayCount; i++)
-            {
-                for(int j = 0; j < this.arrayCount; j++)
-                {
-                    //if (curArray[i] > curArray[j])
-                    //{
-                    //    temp = curArray[j];
-                    //    curArray[j] = curArray[i];
-                    //    curArray[i] = temp;
-                    //}
-                }
-            }
+        //public CustomList<T> Sort()
+        //{
+        //    CustomList<T> customListSorted = new CustomList<T>();
+        //    T temp;
+        //    for(int i = 0; i < arrayCount; i++)
+        //    {
+        //        for(int j = 0; j < arrayCount; j++)
+        //        {
+        //            if (curArray[i] > curArray[j])
+        //            {
+        //                temp = curArray[j];
+        //                curArray[j] = curArray[i];
+        //                curArray[i] = temp;
+        //            }
+        //        }
+        //    }
             
 
 
-            return customListSorted;
-        }
+        //    return customListSorted;
+        //}
     }
 }

@@ -12,12 +12,11 @@ namespace CustomListTests
         {
             // Arrange
             CustomList<int> customList = new CustomList<int>();
-            int expected = 16;
             // Act
-            customList.Add(expected);
+            customList.Add(16);
             int actual = customList[0];
             // Assert
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(16, actual);
         }
         [TestMethod]
         public void TwoIndex_Add()
@@ -146,6 +145,18 @@ namespace CustomListTests
             Assert.AreEqual(expected7, actual7);
             Assert.AreEqual(expected8, actual8);
             Assert.AreEqual(expected9, actual9);
+        }
+        [TestMethod]
+        public void OneIndexObject_Add()
+        {
+            // Arrange
+            CustomList<object> customList = new CustomList<object>();
+            Object myObject = new Object();
+            // Act
+            customList.Add(myObject);
+            object actual = customList[0];
+            // Assert
+            Assert.AreEqual(myObject, actual);
         }
     }
 }

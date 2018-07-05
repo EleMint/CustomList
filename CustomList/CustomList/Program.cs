@@ -10,21 +10,15 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            CustomList<int> customList = new CustomList<int>();
-            CustomList<int> customList2 = new CustomList<int>();
-            customList.Add(14);
-            customList.Add(14);
-            customList.Add(4);
-            customList.Add(14);
-            customList.Add(14);
-            customList.Add(100);
-            customList2.Add(22);
-            customList2.Add(22);
-            customList2.Add(14);
-            customList2.Add(4);
-            customList2.Add(22);
+            CustomList<bool> customList = new CustomList<bool>();
+            CustomList<bool> customList2 = new CustomList<bool>();
+            customList.Add(true);
+            customList.Add(true);
+            customList2.Add(false);
+            customList2.Add(false);
+            customList2.Add(false);
 
-            CustomList<int> actual = customList - customList2;
+            CustomList<bool> customList3 = customList.Zip(customList2);
             Console.ReadLine();
         }
     }

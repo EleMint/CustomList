@@ -70,5 +70,43 @@ namespace CustomListTests
             Assert.AreEqual(customList3[4], true);
             Assert.AreEqual(customList3[5], false);
         }
+        [TestMethod]
+        public void BoolUnevenTest1_Zip()
+        {
+            CustomList<bool> customList = new CustomList<bool>();
+            CustomList<bool> customList2 = new CustomList<bool>();
+            customList.Add(true);
+            customList.Add(true);
+            customList2.Add(false);
+            customList2.Add(false);
+            customList2.Add(false);
+
+            CustomList<bool> customList3 = customList.Zip(customList2);
+
+            Assert.AreEqual(customList3[0], true);
+            Assert.AreEqual(customList3[1], false);
+            Assert.AreEqual(customList3[2], true);
+            Assert.AreEqual(customList3[3], false);
+            Assert.AreEqual(customList3[4], false);
+        }
+        [TestMethod]
+        public void BoolUnevenTest2_Zip()
+        {
+            CustomList<bool> customList = new CustomList<bool>();
+            CustomList<bool> customList2 = new CustomList<bool>();
+            customList.Add(true);
+            customList.Add(true);
+            customList.Add(true);
+            customList2.Add(false);
+            customList2.Add(false);
+
+            CustomList<bool> customList3 = customList.Zip(customList2);
+
+            Assert.AreEqual(customList3[0], true);
+            Assert.AreEqual(customList3[1], false);
+            Assert.AreEqual(customList3[2], true);
+            Assert.AreEqual(customList3[3], false);
+            Assert.AreEqual(customList3[4], true);
+        }
     }
 }

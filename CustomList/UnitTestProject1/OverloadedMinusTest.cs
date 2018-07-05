@@ -5,7 +5,7 @@ using CustomList;
 namespace CustomListTests
 {
     [TestClass]
-    public class OverloadedMinus
+    public class OverloadedMinusTest
     {
         [TestMethod]
         public void MultiIndex_Minus()
