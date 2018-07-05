@@ -158,26 +158,5 @@ namespace CustomList
             
             return customList;
         }
-        //public CustomList<T> Sort()
-        //{
-        //    CustomList<T> customListSorted = new CustomList<T>();
-        //    T temp;
-        //    for(int i = 0; i < arrayCount; i++)
-        //    {
-        //        for(int j = 0; j < arrayCount; j++)
-        //        {
-        //            if (curArray[i] > curArray[j])
-        //            {
-        //                temp = curArray[j];
-        //                curArray[j] = curArray[i];
-        //                curArray[i] = temp;
-        //            }
-        //        }
-        //    }
-            
-
-
-        //    return customListSorted;
-        //}
     }
 }
