@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="AddTest.cs" />
     <Compile Include="CountTest.cs" />
+    <Compile Include="IterationTest.cs" />
     <Compile Include="OverloadedMinusTest.cs" />
     <Compile Include="OverloadedPlusTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
