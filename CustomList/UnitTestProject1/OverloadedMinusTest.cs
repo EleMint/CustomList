@@ -26,7 +26,7 @@ namespace CustomListTests
 
             CustomList<int> actual = customList - customList2;
 
-            Assert.AreEqual(actual.arrayCount, 1);
+            Assert.AreEqual(actual.Count, 1);
         }
         [TestMethod]
         public void OneIndexSubtract_Minus()
@@ -38,7 +38,7 @@ namespace CustomListTests
 
             CustomList<int> actual = customList - customList2;
 
-            Assert.AreEqual(actual.arrayCount, 0);
+            Assert.AreEqual(actual.Count, 0);
         }
         [TestMethod]
         public void TwoIndexSubtractOne_Minus()
@@ -51,7 +51,7 @@ namespace CustomListTests
 
             CustomList<int> actual = customList - customList2;
 
-            Assert.AreEqual(actual.arrayCount, 1);
+            Assert.AreEqual(actual.Count, 1);
             Assert.AreEqual(actual.curArray[0], 2);
         }
         [TestMethod]
@@ -67,7 +67,7 @@ namespace CustomListTests
 
             CustomList<int> actual = customList - customList2;
 
-            Assert.AreEqual(actual.arrayCount, 1);
+            Assert.AreEqual(actual.Count, 1);
             Assert.AreEqual(actual.curArray[0], 2);
         }
     }

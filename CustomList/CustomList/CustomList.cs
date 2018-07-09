@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,45 +8,46 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
         public T[] curArray { get; set; }
-        public int arrayCount { get; set; }
+        public int Count { get; set; }
+        public object Current { get; }
         public T this[int i] { get {return curArray[i];} set {curArray[i] = value;}}
         public CustomList()
         {
             curArray = new T[0];
-            arrayCount = 0;
+            Count = 0;
         }
         public void Add(T item)
         {
-            if (arrayCount == 0)
+            if (Count == 0)
             {
-                arrayCount++;
-                T[] newArray = new T[arrayCount];
-                newArray[arrayCount - 1] = item;
+                Count++;
+                T[] newArray = new T[Count];
+                newArray[Count - 1] = item;
                 curArray = newArray;
             }
             else
             {
-                arrayCount++;
-                T[] newArray = new T[arrayCount];
-                for (int i = 0; i < arrayCount - 1; i++)
+                Count++;
+                T[] newArray = new T[Count];
+                for (int i = 0; i < Count - 1; i++)
                 {
                     newArray[i] = curArray[i];
                 }
 
-                newArray[arrayCount - 1] = item;
+                newArray[Count - 1] = item;
                 curArray = newArray;
             }
         }
         public bool Remove(T item)
         {
-            for(int i = 0; i < arrayCount; i++)
+            for(int i = 0; i < Count; i++)
             {
                 if(curArray[i].Equals(item))
                 {
-                    arrayCount--;
+                    Count--;
                     this.Splice(i);
                     return true;
                 }
@@ -54,10 +56,10 @@ namespace CustomList
         }
         private void Splice(int eleIdx)
         {
-            if (arrayCount == 0)
+            if (Count == 0)
             {
-                T[] newArray = new T[arrayCount];
-                for (int i = 0; i < arrayCount + 1; i++)
+                T[] newArray = new T[Count];
+                for (int i = 0; i < Count + 1; i++)
                 {
                     if (i != eleIdx)
                     {
@@ -66,10 +68,10 @@ namespace CustomList
                 }
                 curArray = newArray;
             }
-            else if(eleIdx == 0 && arrayCount == 2)
+            else if(eleIdx == 0 && Count == 2)
             {
-                T[] newArray = new T[arrayCount];
-                for (int i = 0; i < arrayCount + 1; i++)
+                T[] newArray = new T[Count];
+                for (int i = 0; i < Count + 1; i++)
                 {
                     if (i > eleIdx)
                     {
@@ -80,8 +82,8 @@ namespace CustomList
             }
             else
             {
-                T[] newArray = new T[arrayCount];
-                for (int i = 0; i < arrayCount + 1; i++)
+                T[] newArray = new T[Count];
+                for (int i = 0; i < Count + 1; i++)
                 {
                     if(i < eleIdx)
                     {
@@ -98,13 +100,13 @@ namespace CustomList
         public CustomList<T> Zip(CustomList<T> customList2)
         {
             CustomList<T> customList3 = new CustomList<T>();
-            for(int i = 0; i < arrayCount + customList2.arrayCount; i++)
+            for(int i = 0; i < Count + customList2.Count; i++)
             {
-                if(arrayCount > i)
+                if(Count > i)
                 {
                     customList3.Add(curArray[i]);
                 }
-                if(customList2.arrayCount > i)
+                if(customList2.Count > i)
                 {
                     customList3.Add(customList2.curArray[i]);
                 }
@@ -113,10 +115,11 @@ namespace CustomList
         }
         public override string ToString()
         {
+            // stringbuilder
             string myStr = "";
-            for(int i = 0; i < arrayCount; i++)
+            for(int i = 0; i < Count; i++)
             {
-                if(i == arrayCount - 1)
+                if(i == Count - 1)
                 {
                     myStr += $"{curArray[i]}";
                 }
@@ -131,11 +134,11 @@ namespace CustomList
         public static CustomList<T> operator +(CustomList<T> customList, CustomList<T> customList2)
         {
             CustomList<T> customList3 = new CustomList<T>();
-            for(int i = 0; i < customList.arrayCount; i++)
+            for(int i = 0; i < customList.Count; i++)
             {
                 customList3.Add(customList.curArray[i]);
             }
-            for(int i = 0; i < customList2.arrayCount; i++)
+            for(int i = 0; i < customList2.Count; i++)
             {
                 customList3.Add(customList2.curArray[i]);
             }
@@ -143,9 +146,9 @@ namespace CustomList
         }
         public static CustomList<T> operator -(CustomList<T> customList, CustomList<T> customList2)
         {
-            for(int i = 0; i < customList.arrayCount; i++)
+            for(int i = 0; i < customList.Count; i++)
             {
-                for(int j = 0; j < customList2.arrayCount; j++)
+                for(int j = 0; j < customList2.Count; j++)
                 {
                     if(customList.curArray[i].Equals(customList2.curArray[j]))
                     {
@@ -157,6 +160,13 @@ namespace CustomList
             }
             
             return customList;
+        }
+        public IEnumerator GetEnumerator()
+        {
+            for(int i = 0; i < Count; i++)
+            {
+                yield return curArray[i];
+            }
         }
     }
 }

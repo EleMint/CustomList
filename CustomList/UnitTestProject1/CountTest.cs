@@ -13,7 +13,7 @@ namespace CustomListTests
             CustomList<int> customList = new CustomList<int>();
             customList.Add(14);
 
-            Assert.AreEqual(customList.arrayCount, 1);
+            Assert.AreEqual(customList.Count, 1);
         }
         [TestMethod]
         public void TwoIndex_Count()
@@ -22,7 +22,7 @@ namespace CustomListTests
             customList.Add(14);
             customList.Add(16);
 
-            Assert.AreEqual(customList.arrayCount, 2);
+            Assert.AreEqual(customList.Count, 2);
         }
     }
 }

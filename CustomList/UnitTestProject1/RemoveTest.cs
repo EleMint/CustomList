@@ -16,7 +16,7 @@ namespace CustomListTests
             // Act
             customList.Remove(16);
             // Assert
-            Assert.AreEqual(customList.arrayCount, 0);
+            Assert.AreEqual(customList.Count, 0);
         }
         [TestMethod]
         public void TwoIndex_Remove()
@@ -29,7 +29,7 @@ namespace CustomListTests
             customList.Remove(16);
             customList.Remove(4);
             // Assert
-            Assert.AreEqual(customList.arrayCount, 0);
+            Assert.AreEqual(customList.Count, 0);
         }
         [TestMethod]
         public void TwoIndexOneElement_Remove()
@@ -41,7 +41,7 @@ namespace CustomListTests
             customList.Remove(16);
             customList.Remove(4);
             // Assert
-            Assert.AreEqual(customList.arrayCount, 0);
+            Assert.AreEqual(customList.Count, 0);
         }
         [TestMethod]
         public void ThreeIndex_Remove()
@@ -71,7 +71,7 @@ namespace CustomListTests
             customList.Remove(4);
             customList.Remove(6);
             // Assert
-            Assert.AreEqual(customList.arrayCount, 0);
+            Assert.AreEqual(customList.Count, 0);
         }
     }
 }
