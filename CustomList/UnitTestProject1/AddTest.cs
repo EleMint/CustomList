@@ -10,46 +10,46 @@ namespace CustomListTests
         [TestMethod]
         public void OneIndex_Add()
         {
-            // Arrange
+            
             CustomList<int> customList = new CustomList<int>();
-            // Act
+            
             customList.Add(16);
             int actual = customList[0];
-            // Assert
+            
             Assert.AreEqual(16, actual);
         }
         [TestMethod]
         public void TwoIndex_Add()
         {
-            // Arrange
+            
             CustomList<int> customList = new CustomList<int>();
             int expected0 = 16;
             int expected1 = 13;
-            // Act
+            
             customList.Add(expected0);
             customList.Add(expected1);
             int actual0 = customList[0];
             int actual1 = customList[1];
-            // Assert
+            
             Assert.AreEqual(expected0, actual0);
             Assert.AreEqual(expected1, actual1);
         }
         [TestMethod]
         public void ThreeIndex_Add()
         {
-            // Arrange
+            
             CustomList<int> customList = new CustomList<int>();
             int expected0 = 16;
             int expected1 = 14;
             int expected2 = 13;
-            // Act
+            
             customList.Add(expected0);
             customList.Add(expected1);
             customList.Add(expected2);
             int actual0 = customList[0];
             int actual1 = customList[1];
             int actual2 = customList[2];
-            // Assert
+            
             Assert.AreEqual(expected0, actual0);
             Assert.AreEqual(expected1, actual1);
             Assert.AreEqual(expected2, actual2);
@@ -57,7 +57,7 @@ namespace CustomListTests
         [TestMethod]
         public void NineIndex_Add()
         {
-            // Arrange
+            
             CustomList<int> customList = new CustomList<int>();
             int expected0 = 1;
             int expected1 = 6;
@@ -68,7 +68,7 @@ namespace CustomListTests
             int expected6 = 14;
             int expected7 = 18;
             int expected8 = 0;
-            // Act
+            
             customList.Add(expected0);
             customList.Add(expected1);
             customList.Add(expected2);
@@ -87,7 +87,7 @@ namespace CustomListTests
             int actual6 = customList[6];
             int actual7 = customList[7];
             int actual8 = customList[8];
-            // Assert
+            
             Assert.AreEqual(expected0, actual0);
             Assert.AreEqual(expected1, actual1);
             Assert.AreEqual(expected2, actual2);
@@ -101,7 +101,7 @@ namespace CustomListTests
         [TestMethod]
         public void TenIndex_Add()
         {
-            // Arrange
+            
             CustomList<int> customList = new CustomList<int>();
             int expected0 = 16;
             int expected1 = 6;
@@ -113,7 +113,7 @@ namespace CustomListTests
             int expected7 = 100;
             int expected8 = 18;
             int expected9 = 19;
-            // Act
+            
             customList.Add(expected0);
             customList.Add(expected1);
             customList.Add(expected2);
@@ -134,7 +134,7 @@ namespace CustomListTests
             int actual7 = customList[7];
             int actual8 = customList[8];
             int actual9 = customList[9];
-            // Assert
+
             Assert.AreEqual(expected0, actual0);
             Assert.AreEqual(expected1, actual1);
             Assert.AreEqual(expected2, actual2);
@@ -149,13 +149,13 @@ namespace CustomListTests
         [TestMethod]
         public void OneIndexObject_Add()
         {
-            // Arrange
+
             CustomList<object> customList = new CustomList<object>();
             Object myObject = new Object();
-            // Act
+
             customList.Add(myObject);
             object actual = customList[0];
-            // Assert
+
             Assert.AreEqual(myObject, actual);
         }
     }

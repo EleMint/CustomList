@@ -10,12 +10,7 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            CustomList<int> myList = new CustomList<int>();
-            int myInt = 0;
-            foreach(int hello in myList)
-            {
-                myInt += hello;
-            }
+            
         }
     }
 }
